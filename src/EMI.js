@@ -44,10 +44,8 @@ class EMI extends Component {
         const {amount, rate, tenure} = this.state
         int = (amount * (rate * 0.01))/tenure;
         total = ((amount / tenure) + int).toFixed(2);
-        totalInterest = (int * tenure).toFixed(2);
-        totalPaid = totalInterest + amount;
         console.log("EMI to pay:", total)
-        this.setState({emi: total, interest: int.toFixed(2), totalInt: totalInterest, totalPaid: totalPayment})
+        this.setState({emi: total, interest: int.toFixed(2)})
     }
 
 
@@ -64,7 +62,7 @@ class EMI extends Component {
                         onChangeText={(text) => this.setState({amount: text})}
                         autoCapitalize = {true}
                         returnKeyType = 'next'
-                        keyboardType = 'default'
+                        keyboardType = 'number-pad'
                         placeholder= "Enter Loan Amount"
                         
                     />
@@ -75,7 +73,7 @@ class EMI extends Component {
                         onChangeText={(text) => this.setState({rate: text})}
                         autoCapitalize = {true}
                         returnKeyType = 'next'
-                        keyboardType = 'default'
+                        keyboardType = 'number-pad'
                         placeholder= "Enter Interest Rate"
 
                         
@@ -86,8 +84,8 @@ class EMI extends Component {
                         style={styles.input}
                         onChangeText={(text) => this.setState({tenure: text})}
                         autoCapitalize = {true}
-                        returnKeyType = 'next'
-                        keyboardType = 'default'
+                        returnKeyType = 'done'
+                        keyboardType = 'number-pad'
                         placeholder= "Enter Tenure (In Months)"
 
                         
